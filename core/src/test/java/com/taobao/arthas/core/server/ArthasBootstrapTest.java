@@ -60,4 +60,11 @@ public class ArthasBootstrapTest {
         System.err.println(loadClass);
 
     }
+
+    @Test
+    public void testArthasBootstrapInit() throws Throwable {
+        Instrumentation instrumentation = ByteBuddyAgent.install();
+        ArthasBootstrap bootstrap = ArthasBootstrap.getInstance(instrumentation, ";arthasAgent=/home/xiaomi/.arthas/lib/3.5.0/arthas/arthas-agent.jar;arthasCore=/home/xiaomi/.arthas/lib/3.5.0/arthas/arthas-core.jar;javaPid=21222;");
+        System.out.println(bootstrap.isBind());
+    }
 }
